@@ -1,0 +1,9 @@
+.searched {
+  display: flex;
+  flex-direction: rows;
+  align-items: center;
+  padding: 50px;
+  border: none;
+  text-decoration: none;
+  color: #333;
+}
