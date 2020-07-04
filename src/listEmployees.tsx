@@ -70,11 +70,19 @@ interface ListEmployeesProps {
 export const ListEmployeesComponent: React.FC<ListEmployeesProps> = ({
   userCollection,
 }) => {
-  return (
-    <ul>
-      {userCollection.map((user, index) => (
-        <li key={index}>{user.login}</li>
-      ))}
-    </ul>
-  );
+  if (userCollection && userCollection.length > 0) {
+    return <ListEmployessSubComponent userCollection={userCollection} />;
+  } else {
+    return <MessageErrorComponent />;
+  }
 };
+
+const ListEmployessSubComponent: React.FC<ListEmployeesProps> = ({
+  userCollection,
+}) => (
+  <ul>
+    {userCollection.map((user, index) => (
+      <li key={index}>{user.login}</li>
+    ))}
+  </ul>
+);
